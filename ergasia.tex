@@ -1,0 +1,87 @@
+%xelatex -shell-escape -output-directory=bin ergasia.tex
+\documentclass{assignment}
+
+\usepackage{enumerate} % Για την χρησιμοποίηση roman enumerate
+\usepackage{paralist} % για το περιβάλλον inparaenum που είναι οι λίστες μέσα στο κείμενο.
+
+\title{Αναγνώριση Προτύπων \\ Θέμα Εξαμήνου }
+\date{Αθήνα, 2014}
+
+\author{Αναγνωστόπουλος Βασίλης - Θάνος (ΜΠΠΛ 13002)}
+
+\begin{document}
+
+\maketitle
+% Να σκεφτώ τί αλλαγές θέλω να κάνω με τις αριθμήσεις και άμα θέλω να κάνω.
+% Να σκεφτώ να τις ενσωματώσω και στο assignment.cls
+
+\setcounter{page}{1} 
+\pagenumbering{roman}
+
+\pagestyle{plain}
+\tableofcontents
+%\listoftables
+\listoffigures
+%\renewcommand\listoflistingscaption{Κατάλογος πηγαίου κώδικα}
+%\listoflistings
+\newpage
+
+%\pagestyle{headings}
+%\pagestyle{fancy}
+\setcounter{page}{1} 
+\pagenumbering{arabic}
+
+\section{Άσκηση 1η}
+\subsection{Εκφώνηση}
+
+Να γίνει πλήρης βιβλιογραφική έρευνα με βάση τις λέξεις κλειδιά "\en{Artificial Immune System}".
+
+\subsection {Λύση}
+
+\section{Άσκηση 2η}
+\subsection{Εκφώνηση}
+
+Να γίνει πλήρης βιβλιογραφική έρευνα με βάση τις λέξεις κλειδιά "\en{Swarm Intelligence}".
+
+\subsection {Λύση}
+
+\section{Άσκηση 3η}
+\subsection{Εκφώνηση}
+
+Να γίνει πλήρης βιβλιογραφική έρευνα με βάση τις λέξεις κλειδιά "\en{Evolutionary Computing}" και \en{Genetic Algorithms}.
+
+\subsection {Λύση}
+
+σελ. 80
+
+\section{Άσκηση 4η}
+\subsection{Εκφώνηση}
+
+Να γίνει πλήρης βιβλιογραφική έρευνα με βάση τις λέξεις κλειδιά "\en{Fuzzy Logic Systems}".
+
+\subsection {Λύση}
+
+σελ. 59
+
+\section{Άσκηση 5η}
+\subsection{Εκφώνηση}
+
+Να υλοποιηθούν αλγόριθμοι ιεραρχικής ομαδοποίησης δεδομένων και να εφαρμοστούν στα δεδομένα εκφράσεων προσώπου που θα σας παρασχεθούν.
+
+\subsection {Λύση}
+
+
+σελ. 56
+
+
+
+\phantomsection \label{Βιβλιογραφία}
+\addcontentsline{toc}{section}{Βιβλιογραφία}
+%\mtcaddchapter[Βιβλιογραφία] % Λόγω του minitoc
+\bibliographystyle{plain}
+\bibliography{references}
+
+\newpage
+
+\end{document}
+
