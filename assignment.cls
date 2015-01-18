@@ -18,7 +18,7 @@
 % Για υφενώσεις στα αγγλικά
 \newcommand{\en}[1]{\setlanguage{american}#1\setlanguage{monogreek}} 
 
-\setmainfont[]{Ubuntu} % Για τις γραμματοσειρές 
+\setmainfont[]{DejaVu Sans} % Για τις γραμματοσειρές 
 %\setsansfont[]{Ubuntu} 
 \setmonofont[]{DejaVu Sans Mono} 
 
@@ -68,6 +68,8 @@ pdfborder = {0 0 0},
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
+\RequirePackage{subcaption}          % Subfigures
+% Να κοιτάξω να το φτιάξω σωστά
 
 % Captions
 \RequirePackage[%
