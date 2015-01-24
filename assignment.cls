@@ -90,7 +90,8 @@ pdfborder = {0 0 0},
 %	BIBLIOGRAPHY PACKAGES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage[]{natbib}
+\RequirePackage[numbers]{natbib}
+
 
 %Να το αλλάξω κάποια στιγμή σε biblatex
 %http://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib
