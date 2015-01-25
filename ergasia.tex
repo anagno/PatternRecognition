@@ -218,9 +218,15 @@
 
 Η ιεραρχική ομαδοποίηση (αγγλ. \en{hierarchical clustering}) είναι μία μέθοδος ανάλυσης κλάσεων η οποία αναζητά να κατασκευάσει μία ιεραρχία ομάδων. Η ιεραρχική ομαδοποίηση έχει την ιδιότητα ότι τα δείγματα που ανήκουν στην ίδια ομάδα σε κάποιο επίπεδο να παραμένουν στην ίδια ομάδα σε υψηλότερα επίπεδα \cite{wiki:hierarchical_clustering, class_notes}.
 
-Σε κάθε ιεραρχική ομαδοποίηση αντιστοιχεί ένα δενδρόγραμμα (αγγλ. \en{dendogram}).
+Οι στρατηγικές ιεραρχικής ομαδοποίησης διακρίνονται σε δύο κατηγορίες \cite{wiki:hierarchical_clustering, class_notes}:
+\begin{description}
+\item[συγχωνευτικές (αγγλ. \en{agglomerative}):] Οι συγχωνευτικές (από κάτω προς τα πάνω) ξεκινούν από $n$ ομάδες και δημιουργούν μία ακολουθία από διαδοχικές συγχωνεύσεις ομάδων.
+\item[διαιρετικές (αγγλ. \en{divisive}):]  Οι διαιρετικές (από πάνω προς τα κάτω) ξεκινούν με όλα τα δείγματα σε μία ομάδα και δημιουργούν μία ακολουθία από διαδοχικές διαιρέσεις ομάδων.
+\end{description}
+ 
+Τα αποτελέσματα της ιεραρχική ομαδοποίηση συνήθως απεικονίζονται σε ένα δενδρόγραμμα (αγγλ. \en{dendogram}).
 
-  %\begin{tabular}{|c|c|m{0.35\textwidth}|m{0.35\textwidth}|m{2.0cm}|c|m{1.5cm}|}
+Για να διαπιστωθεί ποιες ομάδες θα πρέπει να συγχωνευτούν (ή αντιστοίχως να διαιρεθούν), θα πρέπει να υπάρχει ένα μέτρο της ανομοιότητας μεταξύ των ομάδων των παρατηρήσεων. Στην πλειοψηφία των ιεραρχικών ομαδοποιήσεων αυτό επιτυγχάνετε με την χρήση ενός κατάλληλου μέτρου (ένα μέτρο της απόστασης μεταξύ των ζευγών των παρατηρήσεων - βλ. πίνακα \ref{table:metric_distances}), καθώς και ένα κριτήριο συνδέσεως (βλ. πίνακα \ref{table:metric_linkage}) η οποία καθορίζει την ανομοιότητα των συνόλων ως συνάρτηση των αποστάσεων κατά ζεύγη των παρατηρήσεων στα σύνολα \cite{wiki:hierarchical_clustering}.
 
 \begin{table}[htbp]
 \begin{center}
@@ -233,7 +239,7 @@
     Απόσταση mahalanobis & $ \sqrt{(a-b)^{\top}S^{-1}(a-b)} $, όπου $S$ είνια ο πίνακας συμεταβλητότητας   \\ \hline
   \end{tabular}
 \caption{Ο πίνακας με τις αποστάσεις \cite{wiki:hierarchical_clustering}.}
-\label{table:distances}
+\label{table:metric_distances}
 \end{center}
 \end{table}
 
@@ -248,13 +254,21 @@
     Μέση σύνδεση   & $\frac{1}{|A| |B|} \sum_{a \in A }\sum_{ b \in B} d(a,b)$ \\ \hline
   \end{tabular}
 \caption{Ο πίνακας με τα κριτήρια σύνδεσης \cite{wiki:hierarchical_clustering}.}
-\label{table:linkage}
+\label{table:metric_linkage}
 \end{center}
 \end{table}
 
 
+Στον πηγαίο κώδικα \ref{listing:matlab} φαίνεται το script που γράφτηκε για τον υπολογισμό των ιεραρχικών ομαδοποιήσεων στο matlab.
+
 \captionof{listing}{Ο κώδικας του \en{matlab}}
 \inputminted[breaklines=true, frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos]{matlab}{../matlab/features.m} 
+\label{listing:matlab}
+
+Στο σχήμα \ref{fig:data_points} φαίνονται τα χαρακτηριστικά όπως είναι ταξινομημένα στην πραγματικότητα και όπως τα αντιλαμβάνεται ο αλγόριθμος.
+
+Για την καλύτερη κατανόηση των μεταβολών που έχουν ΜΠΛΑ ΜΠΛΑ ΜΠΛΑ ΜΠΛΑ σδφξφξασφασ.
+
 
 \begin{figure}[htbp]
   \centering
