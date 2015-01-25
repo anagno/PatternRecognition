@@ -216,11 +216,138 @@
 
 \subsection {Λύση}
 
+Η ιεραρχική ομαδοποίηση (αγγλ. \en{hierarchical clustering}) είναι μία μέθοδος ανάλυσης κλάσεων η οποία αναζητά να κατασκευάσει μία ιεραρχία ομάδων. Η ιεραρχική ομαδοποίηση έχει την ιδιότητα ότι τα δείγματα που ανήκουν στην ίδια ομάδα σε κάποιο επίπεδο να παραμένουν στην ίδια ομάδα σε υψηλότερα επίπεδα \cite{wiki:hierarchical_clustering, class_notes}.
+
+Σε κάθε ιεραρχική ομαδοποίηση αντιστοιχεί ένα δενδρόγραμμα (αγγλ. \en{dendogram}).
+
+  %\begin{tabular}{|c|c|m{0.35\textwidth}|m{0.35\textwidth}|m{2.0cm}|c|m{1.5cm}|}
+
+\begin{table}[htbp]
+\begin{center}
+  \begin{tabular}{|m{0.35\textwidth}|m{0.6\textwidth}|}
+    \hline
+    {\bf Όνομα} & {\bf Τύπος}  \\ \hline
+    Ευκλείδια απόσταση   & $\|a-b \|_2 = \sqrt{\sum_i (a_i-b_i)^2}$  \\ \hline
+    Απόσταση manhattan   & $\|a-b \|_1 = \sum_i \|a_i-b_i \|$ \\ \hline
+    Μέγιστη απόσταση     & $\|a-b \|_\infty = \max_i \|a_i-b_i\|$ \\ \hline
+    Απόσταση mahalanobis & $ \sqrt{(a-b)^{\top}S^{-1}(a-b)} $, όπου $S$ είνια ο πίνακας συμεταβλητότητας   \\ \hline
+  \end{tabular}
+\caption{Ο πίνακας με τις αποστάσεις \cite{wiki:hierarchical_clustering}.}
+\label{table:distances}
+\end{center}
+\end{table}
+
+
+\begin{table}[htbp]
+\begin{center}
+  \begin{tabular}{|m{0.35\textwidth}|m{0.6\textwidth}|}
+    \hline
+    {\bf Όνομα} & {\bf Τύπος}  \\ \hline
+    Πλήρης σύνδεσης   & $\max \, \{\, d(a,b) : a \in A,\, b \in B \,\}$  \\ \hline
+    Μονή σύνδεση   & $ \min \, \{\, d(a,b) : a \in A,\, b \in B \,\}$ \\ \hline
+    Μέση σύνδεση   & $\frac{1}{|A| |B|} \sum_{a \in A }\sum_{ b \in B} d(a,b)$ \\ \hline
+  \end{tabular}
+\caption{Ο πίνακας με τα κριτήρια σύνδεσης \cite{wiki:hierarchical_clustering}.}
+\label{table:linkage}
+\end{center}
+\end{table}
+
 
 \captionof{listing}{Ο κώδικας του \en{matlab}}
 \inputminted[breaklines=true, frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos]{matlab}{../matlab/features.m} 
 
-σελ. 56
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+     \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/labeled_data_points.png}
+  \caption{Τα ταξινομημένα δεδομένα}
+  \end{subfigure}%
+   ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/unlabeled_data_points.png}
+  \caption{Τα αταξινομημένα δεδομένα}
+  \end{subfigure}
+
+  \caption{Τα δεδομένα εκφράσεων προσώπου}
+\label{fig:data_points}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+     \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/hierarchical_dendogram_average_euclidean.png}
+  \caption{Τα δενδρογραμμα των δεδομένα}
+  \end{subfigure}%
+   ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/identified_clusters_average_euclidean.png}
+  \caption{Οι συστάδες που δημιουργήθηκαν}
+  \end{subfigure}
+
+  \caption{Η ιεραρχική ομαδοποίηση των δεδομένων χρησιμοποιώντας την μέση σύνδεση και την ευκλείδεια απόσταση}
+\label{fig:clustering_average_euclidean}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+     \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/hierarchical_dendogram_average_mahalanobis.png}
+  \caption{Τα δενδρογραμμα των δεδομένα}
+  \end{subfigure}%
+   ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/identified_clusters_average_mahalanobis.png}
+  \caption{Οι συστάδες που δημιουργήθηκαν}
+  \end{subfigure}
+
+  \caption{Η ιεραρχική ομαδοποίηση των δεδομένων χρησιμοποιώντας την μέση σύνδεση και την απόσταση mahalanobis}
+\label{fig:clustering_average_mahalanobis}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+     \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/hierarchical_dendogram_average_manhattan.png}
+  \caption{Τα δενδρογραμμα των δεδομένα}
+  \end{subfigure}%
+   ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/identified_clusters_average_manhattan.png}
+  \caption{Οι συστάδες που δημιουργήθηκαν}
+  \end{subfigure}
+  \caption{Η ιεραρχική ομαδοποίηση των δεδομένων χρησιμοποιώντας την μέση σύνδεση και την απόσταση manhattan}
+\label{fig:clustering_average_manhattan}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+     \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/hierarchical_dendogram_single_euclidean.png}
+  \caption{Τα δενδρογραμμα των δεδομένα}
+  \end{subfigure}%
+   ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/identified_clusters_single_euclidean.png}
+  \caption{Οι συστάδες που δημιουργήθηκαν}
+  \end{subfigure}
+  \caption{Η ιεραρχική ομαδοποίηση των δεδομένων χρησιμοποιώντας την μονή σύνδεση και την ευκλείδεια απόσταση}
+\label{fig:clustering_single_euclidean}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+     \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/hierarchical_dendogram_complete_euclidean.png}
+  \caption{Τα δενδρογραμμα των δεδομένα}
+  \end{subfigure}%
+   ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth,height=0.25\textheight]{matlab/identified_clusters_complete_euclidean.png}
+  \caption{Οι συστάδες που δημιουργήθηκαν}
+  \end{subfigure}
+  \caption{Η ιεραρχική ομαδοποίηση των δεδομένων χρησιμοποιώντας την πλήρη σύνδεση και την ευκλείδεια απόσταση}
+\label{fig:clustering_complete_euclidean}
+\end{figure}
 
 
 
