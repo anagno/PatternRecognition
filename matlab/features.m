@@ -1,7 +1,5 @@
 % This script demonstrates the hierarchical clustering algorithm on a set of
-% artificially generated data points. Data points are considered to be
-% sampled from three different multivariate distributions identified by the
-% parameters MU1, MU2, MU3 and SIGMA1, SIGMA2, SIGMA3.
+% given data points. 
 
 %Initialize workspace.
 clc
