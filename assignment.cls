@@ -62,6 +62,8 @@ pdfborder = {0 0 0},
 %	FIGURES, SUBFIGURES AND CAPTIONS%----------------------------------------------------------------------------------------
 
 \RequirePackage{tabularx} % Special tables. Επεκτείνει το περιβάλλον tabular
+\RequirePackage{multirow} % Για την συγχώνευση πολλαπλών γραμμών στους πίνακες
+
 
 % Για την αρίθμηση των πινάκων και των σχημάτων ανάλογα με τις ενότητες
 \RequirePackage{chngcntr}
