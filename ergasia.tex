@@ -201,6 +201,25 @@ Kennedy, Eberhart και Shi \cite{kennedy2010particle}.
 
   \mbox{(Αρχικοποίηση)}
   \WHILE it \gt MAX\_ITERATIONS \DO
+    \FOR \mbox{κάθε σωματίδιο } i \in S \DO
+    \mbox{//Ενημέρωση της καλύτερης θέσης κάθε σωματιδίου}
+    \IF f(x_i) \lt f(pb_i)
+    \THEN pb_i = x_i
+    \FI
+    \mbox{//Ενημέρωση του καθολικού μέγιστου}
+    \IF f(pb_i) \lt f(gb)
+    \THEN gb = pb_i
+    \FI
+    \END
+    \mbox{//Ενημέρωση της ταχύτητας και της θέσης των σωματιδίων}
+    \FOR \mbox{κάθε σωματίδιο } i \in S \DO
+        \FOR \mbox{κάθε διάσταση } d \in D \DO
+            u_{i, d} = u_{i, d} + C_1 * Rnd(0,1) * [pb_{i, d}-x_{i, d}] + C_2 * Rnd(0, 1) * [gb_d - x_{i, d}]
+            x_{i, d} = x{i, d} + u{i, d}
+        \END
+    \END
+    \mbox{//Επόμενη επανάληψη}
+    it = it + 1
   \END
 \end{program}
 \end{algorithm}
